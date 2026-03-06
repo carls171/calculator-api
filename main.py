@@ -27,3 +27,22 @@ def add(a: str, b: str):
     except ValueError:
         raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Both a and b must be valid numbers")
     return {"result": a + b}
+
+@app.get("/sub/{a}/{b}", status_code=200)
+def Subtract(a: str, b: str):
+    """
+    Subtract one number from the other.
+    
+    Parameters:
+    - a: First number
+    - b: Second number
+    
+    Returns:
+    - JSON object with the result
+    """
+    try:
+        a = float(a)
+        b = float(b)
+    except ValueError:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Both a and b must be valid numbers")
+    return {"result": a - b}
