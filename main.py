@@ -110,7 +110,7 @@ def tri(a: str, b: str, c: str):
         b = float(b)
         c = float(c)
     except ValueError:
-        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Both a, b, and c must be valid numbers")
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="a, b, and c must be valid numbers")
     
     return {"result": ((a+b+c)/3)}
 
